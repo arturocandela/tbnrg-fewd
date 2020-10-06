@@ -5,6 +5,7 @@
         <title>coffeerun</title>
         <!-- También existe bootstrap js !! Cuidado! -->
         <link rel="stylesheet" href="stylesheets/bootstrap-4.5.2-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="stylesheets/main.css"></link>
     </head>
     <body class="container">
         <header>
@@ -16,11 +17,11 @@
                     <form data-coffee-order="form">
                         <div class="form-group">
                             <label for="coffeeOrder">Coffee Order</label>
-                            <input class="form-control" name="coffee" id="coffeeOrder" autofocus>
+                            <input class="form-control" name="coffee" id="coffeeOrder" autofocus required pattern="[a-zA-Z\s]+">
                         </div>
                         <div class="form-group">
                           <label for="emailInput">Email</label>
-                          <input type="email" name="emailAddress" id="emailInput" class="form-control" value="" placeholder="dr@who.com">
+                          <input type="email" name="emailAddress" id="emailInput" class="form-control" value="" placeholder="dr@who.com" required>
                         </div>
                         <div class="form-group">
                             <div class="radio">
@@ -72,6 +73,7 @@
         </section>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" charset="utf-8"></script>
+        <script src="scripts/validation.js" charset="utf-8"></script>
         <script src="scripts/checklist.js" charset="utf-8"></script>
         <script src="scripts/formhandler.js" charset="utf-8"></script>
         <script src="scripts/datastore.js" charset="utf-8"></script>
