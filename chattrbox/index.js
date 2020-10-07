@@ -1,7 +1,9 @@
 var http = require("http");
 var fs = require('fs');
-const extract = require("./extract");
+var mime = require('mime-types')
 
+const extract = require("./extract");
+var wss = require('./websockets-server');
 
 var handleError = function(err,res){
     res.writeHead(404);
@@ -19,7 +21,9 @@ var server = http.createServer(function(req,res){
             handleError(err,res);
             return;
         } else {
-            res.setHeader('Content-Type','text/html');
+            //res.setHeader('Content-Type','text/html');
+            
+            res.setHeader('Content-Type',mime.lookup(filePath) || 'application/octet-stream')
             res.end(data);
         }
         
